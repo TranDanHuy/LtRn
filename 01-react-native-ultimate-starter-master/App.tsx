@@ -16,15 +16,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View>
-        <Text>
-          {name}
-        </Text>
-        <Text>
-          {JSON.stringify(person)}
-        </Text>
-      </View>
-      <Text style={styles.test}>test</Text>
+      <Text style={{fontSize:50}}> Hello wolrd</Text>
 
     </View>
   );
