@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
 
   //data type
 //string
-  const [name, setName] = useState<string>("danhuyhehe");
+  const [name, setName] = useState<string>("a");
 
 //number
 const [age,setAge] = useState<number>(30);
@@ -20,12 +20,27 @@ const [person, setPerson] = useState([{
 
   return (
     <View style={styles.container}>
-      <Text style={{fontSize:50, color: "pink"}}> Hello wolrd</Text>
+      
      <View>
+      <TextInput 
+      onChangeText={value => setName(value)}
+      value={name}
+      autoCapitalize='none'
+      autoCorrect= {false}
+      //keyboardType='numeric'
+      //maxLength={2}
+      //multiline
+      style={{
+        
+        borderColor: "violet",
+        borderWidth: 1,
+        padding: 10,
+      }}/>
       <Text style={styles.test1}>{name}</Text>
-      <Text style={styles.test1}>{JSON.stringify(person)}</Text>
-      <Text style={styles.test2}> Tôi là Đan Huy</Text>
+     
      </View>
+     <Button title='ADD NEW'/>
+      <TextInput style={styles.test2}> Tôi là Đan Huy</TextInput>
 
     </View>
   );
@@ -37,8 +52,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     //alignItems: 'center',
     //justifyContent: 'center',
-    paddingHorizontal: 20,
+    fontSize: 60,
+    color:"red",
     paddingTop: 20,
+    paddingHorizontal: 20
   },
   test: {
     color: "red",
