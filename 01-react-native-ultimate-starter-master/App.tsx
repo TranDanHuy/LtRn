@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, FlatList, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
 
@@ -57,13 +57,24 @@ const [todoList, setTodoList] = useState(
      
      </View>
      <Button title='ADD NEW' onPress={() => alert("click me")}/>
-      <ScrollView style={{marginTop: 20, borderColor: "red", borderWidth: 1}}>
+      <FlatList style={{marginTop: 20, borderColor: "red", borderWidth: 1}} 
+      data={todoList} 
+      keyExtractor={item => item.id + ""}
+      renderItem={({item}) => {
+        return(
+            <Text 
+            //key={item.id} 
+            style={styles.todo}>{item.title}</Text>
+          )
+      }}
+      />
+      {/*<ScrollView style={{marginTop: 20, borderColor: "red", borderWidth: 1}}>
         {todoList.map(todo => {
           return(
             <Text key={todo.id} style={styles.todo}>{todo.title}</Text>
           )
         })}
-      </ScrollView>
+      </ScrollView>*/}
 
     </View>
   );
