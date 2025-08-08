@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import InputTodo from "./components/todo/input.todo";
 import ListTodo from "./components/todo/list.todo";
+import FlexBox from "./components/todo/flexbox";
 
 export default function App() {
   const [todoList, setTodoList] = useState<ITodo[]>([]);
@@ -30,14 +31,17 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <InputTodo addTodo={addTodo}/>
-      <ListTodo 
-      todoList={todoList}
-      deleteTodo={deleteTodo}
-      />
+
+    <FlexBox/>
+    
+    //<View style={styles.container}>
+      //<InputTodo addTodo={addTodo}/>
+      //<ListTodo 
+      //todoList={todoList}
+      //deleteTodo={deleteTodo}
+      ///>
       
-    </View>
+    //</View>
   );
 }
 

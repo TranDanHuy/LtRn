@@ -1,6 +1,15 @@
 import { useState } from "react";
-import { Alert, Button, Keyboard, StyleSheet, TextInput, TouchableWithoutFeedback, View } from "react-native";
+import {
+  Alert,
+  Button,
+  Keyboard,
+  StyleSheet,
+  TextInput,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 
+import MineButton from "../button/mine.button";
 const styles = StyleSheet.create({
   todoInput: {
     borderColor: "violet",
@@ -19,16 +28,14 @@ const InputTodo = (props: IProps) => {
   const [name, setName] = useState<string>("");
   const handleAddNewTodo = () => {
     if (!name) {
-      Alert.alert("Thông tin k hợp lệ", "Tiêu đề k được trống",
-        [
-      //{
-       // text: 'Cancel',
-       // onPress: () => console.log('Cancel Pressed'),
-       // style: 'cancel',
-      //},
-      {text: 'OK hahaa', onPress: () => console.log('OK Pressed')},
-    ]
-      );
+      Alert.alert("Thông tin k hợp lệ", "Tiêu đề k được trống", [
+        //{
+        // text: 'Cancel',
+        // onPress: () => console.log('Cancel Pressed'),
+        // style: 'cancel',
+        //},
+        { text: "OK hahaa", onPress: () => console.log("OK Pressed") },
+      ]);
       return;
     }
     addTodo(name);
@@ -36,8 +43,7 @@ const InputTodo = (props: IProps) => {
   };
   return (
     <>
-     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-       <View>
+      <View style={{ marginBottom: 20 }}>
         <TextInput
           onChangeText={(value) => setName(value)}
           value={name}
@@ -48,9 +54,9 @@ const InputTodo = (props: IProps) => {
           //multiline
           style={styles.todoInput}
         />
-        <Button title="ADD NEW" onPress={handleAddNewTodo} />
+
+        <MineButton title="add New" onPress={handleAddNewTodo} />
       </View>
-     </TouchableWithoutFeedback>
     </>
   );
 };
