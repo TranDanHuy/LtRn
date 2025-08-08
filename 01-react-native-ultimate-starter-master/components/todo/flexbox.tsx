@@ -6,32 +6,48 @@ const styles =  StyleSheet.create({
         marginTop: 40,
         borderWidth: 1,
         borderColor: "red",
-        //flexDirection: "row",
+        flexDirection: "column",
+        justifyContent: "center",
+        //alignItems: "center"
+
+
+
         //justifyContent: "center",
-        
+        //flexDirection:  "row",
+        //alignItems: "center"
+
 
     },
     item1: {
+        flex: 4,
         padding: 20,
         borderWidth: 1,
         backgroundColor: "green",
+        //height: 150,
+        width: 60,
 
     },
     item2: {
+        flex: 1,
         padding: 20,
         borderWidth: 1,
         backgroundColor: "violet",
-        
+        height: 200,
+        width: 30,
     },
     item3: {
+        flex: 1,
         padding: 20,
         borderWidth: 1,
         backgroundColor: "blue",
+        height: 100,
+        width: 100
     },
     item4: {
         padding: 20,
         borderWidth: 1,
        backgroundColor: "yellow",
+
         
     }
 })
