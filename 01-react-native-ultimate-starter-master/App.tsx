@@ -32,16 +32,16 @@ export default function App() {
 
   return (
 
-    <FlexBox/>
+    //<FlexBox/>
     
-    //<View style={styles.container}>
-      //<InputTodo addTodo={addTodo}/>
-      //<ListTodo 
-      //todoList={todoList}
-      //deleteTodo={deleteTodo}
-      ///>
+    <View style={styles.container}>
+      <InputTodo addTodo={addTodo}/>
+      <ListTodo 
+      todoList={todoList}
+      deleteTodo={deleteTodo}
+      />
       
-    //</View>
+    </View>
   );
 }
 
