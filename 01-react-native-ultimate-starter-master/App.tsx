@@ -54,16 +54,32 @@ export default function App() {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>Details Screen</Text>
-        <Text>user id = {route.params.userId}</Text>
+        <Text>user id = {route?.params?.userId}</Text>
         <Button title="Go back Home" onPress={() => navigation.goBack()} />
       </View>
     );
   }
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+    <NavigationContainer 
+    >
+      <Stack.Navigator 
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#f4511e',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}>
+        <Stack.Screen name="Home"
+         component={HomeScreen}
+         options={{headerTitle: "Trang chủ"}} />
+        <Stack.Screen name="Details"
+         component={DetailsScreen}
+         options={({route}: {route: any} ) => ({
+          headerTitle: `Xem chi tiết ${route?.params?.userId ?? ""}`,
+          })} />
       </Stack.Navigator>
     </NavigationContainer>
   );
