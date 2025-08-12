@@ -88,3 +88,86 @@ const styles = StyleSheet.create({
     color: "blue",
   },
 });
+import { useState } from "react";
+import {
+  Button,
+  FlatList,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
+
+import { NavigationContainer, useRoute } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useNavigation } from "@react-navigation/native";
+import "react-native-gesture-handler";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from "@expo/vector-icons/Ionicons"
+import Home from "./components/learn/home";
+import HomeDetail from "./components/learn/home.detail";
+
+export default function App() {
+  const Stack = createNativeStackNavigator();
+  const Drawer = createDrawerNavigator();
+  const Tab = createBottomTabNavigator();
+
+
+  return (
+    <NavigationContainer>
+      {/* <Stack.Navigator 
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#f4511e',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}
+      
+      >
+        <Stack.Screen name="Home"
+         component={HomeScreen}
+         options={{headerTitle: "Trang chủ"}} />
+        <Stack.Screen name="Details"
+         component={DetailsScreen}
+         options={({route}: {route: any} ) => ({
+          headerTitle: `Xem chi tiết ${route?.params?.userId ?? ""}`,
+          })} />
+      </Stack.Navigator> */}
+
+      {/* <Drawer.Navigator initialRouteName="Article">
+        <Drawer.Screen name="Feed" options={{headerTitle: "Trang chủ"}} component={HomeScreen} />
+        <Drawer.Screen name="Article" component={DetailsScreen} />
+      </Drawer.Navigator> */}
+
+      <Tab.Navigator 
+      screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+
+            if (route.name === 'Home') {
+              iconName = focused
+                ? 'american-football'
+                : 'american-football-outline';
+            } else if (route.name === 'Settings') {
+              iconName = focused ? 'aperture' : 'aperture-outline';
+            }
+
+            // You can return any component that you like here!
+            return <Ionicons name={iconName as any} 
+            size={size} color={color} />;
+          },
+          tabBarActiveTintColor: 'tomato',
+          tabBarInactiveTintColor: 'gray',
+        })}>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Settings" component={HomeDetail} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
+
